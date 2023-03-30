@@ -1,16 +1,29 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import styles from "./NavBar.module.css";
 
 export default function NavBar(){
-  return (<nav>
+  const router = useRouter();
+  console.log(router);
+
+
+  return (
+  <nav>
+    {/* <Link style={{color: router.pathname==="/" ? "red" : "blue"}} href="/">Home</Link>
+    <Link style={{color: router.pathname==="/" ? "red" : "blue"}} href="/about"> about </Link>
+     */}
     <Link href="/">
-      Home
+      <a 
+        classNAme={`${styles.link} ${router.pathname === "/"? styles.active : ""}`}
+      >Home</a>
     </Link>
     <Link href="/about">
-      About
+    <a
+          className={[
+            styles.link,
+            router.pathname === "/about" ? styles.active : "",
+          ].join(" ")}
+        >About</a>
     </Link>
-  </nav>)
+  </nav>);
 }
-
-/***
- * 근데 왜 애러 메세지가 안뜨는 거지? ㅇㅅㅇa
- */
