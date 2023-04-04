@@ -25,5 +25,13 @@ export default function NavBar(){
           ].join(" ")}
         >About</a>
     </Link>
+    <style jsx>{`
+      a {
+          text-decoration: none;
+        }
+        .active {
+          color: tomato;
+        }
+    `}</style>
   </nav>);
 }
